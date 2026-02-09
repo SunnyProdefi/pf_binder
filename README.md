@@ -7,10 +7,6 @@
 
 ## 依赖
 
-Binder 本质是 **Linux 内核驱动 + Android 用户态库（libbinder）**。如果你只想“快速体验接口调用流程”，可以先用 **本地模式** 构建（不依赖 Binder 驱动与 Android 头文件），之后再切换到 Android 模式体验真正的 Binder IPC。
-
-### Android 模式（真正的 Binder IPC）
-
 在 WSL 中使用 Binder，需要具备以下条件：
 
 1. **libbinder 头文件与库**  
@@ -21,17 +17,7 @@ Binder 本质是 **Linux 内核驱动 + Android 用户态库（libbinder）**。
 2. **Binder 内核驱动**  
    WSL2 默认不一定启用 Binder 驱动。若没有 `/dev/binder` 或 `binderfs`，服务端会启动失败。
 
-### 本地模式（无 Binder 依赖）
-
-本地模式只演示接口调用，不依赖 Binder 驱动与 Android 头文件库：
-
-```bash
-cmake -S . -B build -DBINDER_BACKEND=local
-cmake --build build -j
-./build/hello_local
-```
-
-### 构建（Android 模式）
+## 构建
 
 ```bash
 cmake -S . -B build
@@ -48,7 +34,7 @@ cmake -S . -B build \
 cmake --build build -j
 ```
 
-## 运行（Android 模式）
+## 运行
 
 先启动服务端（会阻塞等待请求）：
 
