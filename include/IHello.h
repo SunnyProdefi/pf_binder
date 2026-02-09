@@ -1,6 +1,8 @@
 // IHello.h
 #pragma once
 
+#include "HelloApi.h"
+
 #include <binder/IInterface.h>
 #include <binder/IBinder.h>
 #include <binder/Parcel.h>
@@ -9,7 +11,7 @@
 namespace demo
 {
 
-    class IHello : public android::IInterface
+    class IHello : public android::IInterface, public HelloApi
     {
     public:
         DECLARE_META_INTERFACE(Hello);
