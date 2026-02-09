@@ -1,11 +1,3 @@
-// 放在某个 .cpp 里（比如 HelloService.cpp 顶部）
-#include "IHello.h"
-
-namespace demo
-{
-    IMPLEMENT_META_INTERFACE(Hello, "demo.IHello");
-}  // namespace demo
-
 // HelloService.cpp
 #include "IHello.h"
 
